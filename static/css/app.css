@@ -262,6 +262,7 @@ section > div {
 
 .supporters > tbody > tr> td {
     vertical-align: middle;
+    padding: 7px;
 }
 
 .supporter-img {

@@ -1,0 +1,25 @@
+{
+    "name": "panopticon",
+    "version": "0.1.0",
+    "description": "Hackerspace.gr website",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/hsgr/panopticon.git"
+    },
+    "author": "HSGR",
+    "license": "AGPLv3",
+    "bugs": {
+        "url": "https://github.com/hsgr/panopticon/issues"
+    },
+    "devDependencies": {
+        "gulp": "^3.9.1",
+        "gulp-clean-css": "^3.0.3",
+        "gulp-eslint": "^3.0.1",
+        "gulp-filter": "^5.0.0",
+        "gulp-main-bower-files": "^1.6.1",
+        "gulp-stylelint": "^3.9.0",
+        "gulp-uglify": "^2.0.1",
+        "gulp-watch": "^4.3.11",
+        "gulp-webserver": "^0.9.1"
+    }
+}

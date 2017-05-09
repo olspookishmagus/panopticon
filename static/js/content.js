@@ -1,14 +1,16 @@
+/* globals get_counter, get_events, get_news, L */
+
 $(document).ready(function() {
     get_counter();
     get_events();
     get_news();
 
     L.mapbox.accessToken = 'pk.eyJ1IjoiY29temVyYWRkIiwiYSI6ImxjQjFHNFUifQ.ohrYy34a8ZIZejrPSMWIww';
-    var map = L.mapbox.map('map', 'comzeradd.jimaooe5',{
+    L.mapbox.map('map', 'comzeradd.jimaooe5',{
         zoomControl: false
     }).setView([38.01697, 23.73140], 15);
 
-    var refreshId = setInterval(function() {
+    setInterval(function() {
         get_counter();
     }, 100000);
 
@@ -32,6 +34,6 @@ $(document).ready(function() {
     });
 
     // Add current copyright year
-    var current_year = "-" + new Date().getFullYear();
+    var current_year = '-' + new Date().getFullYear();
     $('#copy').text(current_year);
 });

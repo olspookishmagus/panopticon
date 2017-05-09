@@ -1,22 +1,78 @@
 {
-  "name": "panopticon",
-  "description": "Hackerspace.gr web app",
-  "version": "0.0.1",
-  "homepage": "https://github.com/hsgr/panopticon",
-  "license": "AGPL",
-  "dependencies": {
-    "angular": "1.4.11",
-    "jquery": "2.1.4",
-    "bootstrap": "3.3.6",
-    "mapbox.js": "2.2.x",
-    "font-awesome": "4.5.0",
-    "webL10n": "*",
-    "moment": "2.10.x",
-    "angular-route": "1.4.11",
-    "angular-ui": "0.4.x",
-    "angular-moment": "0.10.3",
-    "angular-loading-bar": "0.9.0",
-    "angular-sanitize": "1.4.11",
-    "ng-showdown": "1.1.0"
-  }
+    "name": "panopticon",
+    "description": "Hackerspace.gr web app",
+    "version": "0.0.1",
+    "homepage": "https://github.com/hsgr/panopticon",
+    "license": "AGPL",
+    "dependencies": {
+        "angular": "1.4.11",
+        "jquery": "2.1.4",
+        "bootstrap": "3.3.6",
+        "mapbox.js": "2.2.x",
+        "font-awesome": "4.5.0",
+        "webL10n": "*",
+        "moment": "2.10.x",
+        "angular-route": "1.4.11",
+        "angular-ui": "0.4.x",
+        "angular-moment": "0.10.3",
+        "angular-loading-bar": "0.9.0",
+        "angular-sanitize": "1.4.11",
+        "showdown": "1.6.4",
+        "ng-showdown": "1.1.0"
+    },
+    "overrides": {
+        "jquery": {
+            "main": "dist/jquery.min.js"
+        },
+        "bootstrap": {
+            "main": [
+                "dist/css/bootstrap.min.css",
+                "dist/js/bootstrap.min.js",
+                "dist/fonts/*"
+            ]
+        },
+        "angular": {
+            "main": "angular.min.js"
+        },
+        "mapbox.js": {
+            "main": [
+                "mapbox.css",
+                "mapbox.js",
+                "images/*"
+            ]
+        },
+        "font-awesome": {
+            "main": [
+                "css/font-awesome.min.css",
+                "fonts/*"
+            ]
+        },
+        "webL10n": {
+            "main": "l10n.js"
+        },
+        "moment": {
+            "main": "min/moment.min.js"
+        },
+        "angular-route": {
+            "main": "angular-route.min.js"
+        },
+        "angular-ui": {
+            "main": "build/angular-ui.min.js"
+        },
+        "angular-moment": {
+            "main": "angular-moment.min.js"
+        },
+        "angular-loading-bar": {
+            "main": "build/loading-bar.min.js"
+        },
+        "angular-sanitize": {
+            "main": "angular-sanitize.min.js"
+        },
+        "showdown": {
+            "main": "dist/showdown.min.js"
+        },
+        "ng-showdown": {
+            "main": "dist/ng-showdown.min.js"
+        }
+    }
 }

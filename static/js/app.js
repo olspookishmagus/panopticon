@@ -1,3 +1,11 @@
+/* globals angular  */
+
+function get_to_top() {
+    $('body, html').animate({
+        scrollTop: 0
+    }, 800);
+}
+
 var panopticon = angular.module('panopticon', ['ngRoute', 'ng-showdown', 'angularMoment', 'angular-loading-bar'])
     .config(['cfpLoadingBarProvider', function(cfpLoadingBarProvider) {
         cfpLoadingBarProvider.includeSpinner = false;
@@ -46,13 +54,6 @@ panopticon.config(['$routeProvider',
     }
 ]);
 
-panopticon.filter('md', function($filter) {
-   return function(data) {
-       if (!data) return data;
-       return data.replace(/\n/g, '<br>');
-   };
-});
-
 panopticon.controller('booksCtrl', function ($scope, $http) {
     $http.get('library/books.json').success(function(data) {
         $scope.books = data;
@@ -62,7 +63,5 @@ panopticon.controller('booksCtrl', function ($scope, $http) {
 panopticon.controller('updatesCtrl', function ($scope, $routeParams, $http) {
     $http.get('https://librenet.gr/posts/' + $routeParams.uuid + '.json').success(function(item) {
         $scope.update = item;
-    }).error(function(data) {
-        console.log(data);
     });
 });

@@ -966,5 +966,35 @@
         "Publisher": "Institute of Network Cultures",
         "Title": "MoneyLab Reader 2: Overcoming the Hype",
         "Year": "2018"
+    },
+    {
+        "Authors": [
+            "Douglas Adams"
+        ],
+        "ISBN": "9780060987046",
+        "Language": "en",
+        "Publisher": "Harper Collins",
+        "Title": "Microserfs",
+        "Year": "1996"
+    },
+    {
+        "Authors": [
+            "Paul Graham"
+        ],
+        "ISBN": "9780596006624",
+        "Language": "en",
+        "Publisher": "O'Reilly Media, Inc.",
+        "Title": "Big Ideas from the Computer Age",
+        "Year": "2004"
+    },
+    {
+        "Authors": [
+            "David Allan Curry"
+        ],
+        "ISBN": "9780201563276",
+        "Language": "en",
+        "Publisher": "Addison-Wesley",
+        "Title": "UNIX System Security",
+        "Year": "1992"
     }
 ]

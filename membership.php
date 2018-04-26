@@ -22,18 +22,9 @@
       <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
       <?php
 
-          require_once('recaptchalib.php');
-          require_once('recaptcha-keys.php');
-          # the response from reCAPTCHA
-          $resp = null;
-          # the error code from reCAPTCHA, if any
-          $error = null;
-          # was there a reCAPTCHA response?
-          if ( $_POST["recaptcha_response_field"] ) {
-              $resp = recaptcha_check_answer ($privatekey,
-                                              $_SERVER["REMOTE_ADDR"],
-                                              $_POST["recaptcha_challenge_field"],
-                                              $_POST["recaptcha_response_field"]);
+          $valid = False;
+
+          if ($_POST['name']) {
               // Sanitize
               $name = htmlspecialchars(stripslashes(trim($_POST['name'])));
               $email = htmlspecialchars(stripslashes(trim($_POST['email'])));
@@ -48,19 +39,18 @@
               $headers .= "Content-type: text/plain; charset=UTF-8" . "\r\n";
               $headers .= "From: hsgrbot <noreply@hackerspace.gr>";
 
-              if ( $resp->is_valid && (strlen($name) != 0) && (strlen($email) != 0)) {
+              if ( (strlen($name) != 0) && (strlen($email) != 0)) {
                   $text = "name: ".$name."\nemail: ".$email."\nmemberspage: ".$memberspage."\ndiscusslist: ".$discusslist."\n\n";
                   $text = $text."recipient: ".$addrrec."\nstreet: ".$addrstreet."\npo: ".$addrpo."\ncity: ".$addrcity."\ncountry: ".$addrcountry;
                   mail("registration@hackerspace.gr", "[hsgr] Membership request", "$text", $headers);
+                  $valid = True;
                   echo "<div class='alert alert-success membership-notice'>Thank you! Just one more step...<br><br>Pay your first subscription on <a href='https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=SU9M26K3ALNV8' target='_blank'>Paypal</a> or <a href='https://www.patreon.com/hackerspacegr' target='_blank'>Patreon</a>.</div>";
               } else {
-                  # set the error code so that we can display it
-                  $error = $resp->error;
                   $errormsg = '<p class="text-danger">You either missed a required field or captcha</p>';
               }
           }
 
-          if ( !$resp->is_valid ) {
+          if ( !$valid ) {
       ?>
       <div class="membership-body">
         <div class="alert alert-info membership-notice">
@@ -104,9 +94,6 @@
             <input type="checkbox" name="discusslist" value="1"> Subscribe me to discussions mailing list.
           </label>
         </div>
-        <?php
-          echo recaptcha_get_html($publickey, $error);
-        ?>
         <hr>
         <div class="form-group">
           <label for="address">Shipping Address - <small>in case you want your hackerspace passport :)</small></label><br>
